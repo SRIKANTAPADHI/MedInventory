@@ -1,69 +1,171 @@
-import Image from "next/image";
+
+import Link from "next/link";
+import {
+  LayoutDashboard,
+  Pill,
+  Package,
+  ShoppingCart,
+  BarChart3,
+  ArrowRight,
+  ShieldCheck,
+} from "lucide-react";
 
 export default function Home() {
+  const features = [
+    {
+      title: "Dashboard",
+      description: "View your complete inventory overview.",
+      href: "/dashboard",
+      icon: LayoutDashboard,
+    },
+    {
+      title: "Medicines",
+      description: "Add, update and manage medicines.",
+      href: "/medicines",
+      icon: Pill,
+    },
+    {
+      title: "Inventory",
+      description: "Track stock levels and availability.",
+      href: "/inventory",
+      icon: Package,
+    },
+    {
+      title: "Sales",
+      description: "Manage medicine sales and transactions.",
+      href: "/sales",
+      icon: ShoppingCart,
+    },
+    {
+      title: "Reports",
+      description: "Analyze inventory and sales reports.",
+      href: "/reports",
+      icon: BarChart3,
+    },
+  ];
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.js
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="min-h-[calc(100vh-73px)] bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+
+      {/* Hero */}
+
+      <section className="mx-auto max-w-7xl px-6 py-20 text-center">
+
+        <div className="mx-auto mb-6 flex w-fit items-center gap-2 rounded-full border border-blue-100 bg-white px-4 py-2 text-sm font-medium text-blue-600 shadow-sm">
+          <ShieldCheck size={17} />
+          Secure Medicine Management
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+        <h1 className="mx-auto max-w-4xl text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
+          Smart{" "}
+          <span className="text-blue-600">
+            Medicine Inventory
+          </span>{" "}
+          Management
+        </h1>
+
+        <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+          Manage medicines, track stock, monitor sales and
+          generate reports — all from one simple platform.
+        </p>
+
+        {/* Buttons */}
+
+        <div className="mt-8 flex justify-center gap-4">
+
+          <Link
+            href="/dashboard"
+            className="group flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3.5 font-semibold text-white shadow-lg shadow-blue-200 transition hover:-translate-y-1 hover:bg-blue-700"
           >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
+            Open Dashboard
+
+            <ArrowRight
+              size={18}
+              className="transition-transform group-hover:translate-x-1"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          </Link>
+
+          <Link
+            href="/medicines"
+            className="rounded-xl border border-gray-200 bg-white px-6 py-3.5 font-semibold text-gray-700 shadow-sm transition hover:-translate-y-1 hover:border-blue-300 hover:text-blue-600"
           >
-            Documentation
-          </a>
+            View Medicines
+          </Link>
+
         </div>
-      </main>
-    </div>
+
+      </section>
+
+
+      {/* Features */}
+
+      <section className="mx-auto max-w-7xl px-6 pb-20">
+
+        <div className="mb-8 text-center">
+
+          <h2 className="text-2xl font-bold text-gray-900">
+            Manage Everything in One Place
+          </h2>
+
+          <p className="mt-2 text-gray-500">
+            Quick access to all important features.
+          </p>
+
+        </div>
+
+
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+
+          {features.map((feature) => {
+            const Icon = feature.icon;
+
+            return (
+              <Link
+                key={feature.href}
+                href={feature.href}
+                className="group rounded-2xl border border-white bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl"
+              >
+
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600 transition duration-300 group-hover:bg-blue-600 group-hover:text-white">
+                  <Icon size={23} />
+                </div>
+
+                <h3 className="text-lg font-bold text-gray-900">
+                  {feature.title}
+                </h3>
+
+                <p className="mt-2 text-sm leading-6 text-gray-500">
+                  {feature.description}
+                </p>
+
+                <div className="mt-4 flex items-center gap-1 text-sm font-semibold text-blue-600">
+                  Open
+                  <ArrowRight
+                    size={15}
+                    className="transition-transform group-hover:translate-x-1"
+                  />
+                </div>
+
+              </Link>
+            );
+          })}
+
+        </div>
+
+      </section>
+
+
+      {/* Footer */}
+
+      <footer className="border-t border-gray-200 bg-white/70 py-5 text-center">
+
+        <p className="text-sm text-gray-500">
+          © 2026 MedInventory · Medicine Inventory Management System
+        </p>
+
+      </footer>
+
+    </main>
   );
 }
+
